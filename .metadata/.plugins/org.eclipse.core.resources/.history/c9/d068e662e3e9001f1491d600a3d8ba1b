@@ -1,0 +1,26 @@
+package com.dao;
+
+import java.util.List;
+
+import org.springframework.stereotype.Repository;
+
+import com.bean.School;
+import com.bean.Student;
+
+@Repository
+public class SchoolDAO {
+	
+	public void addSchool(School school){
+		
+	}
+	
+	
+	public void registerStudentToSchool(String schoolId, List<Student> student ) {
+		
+	}
+
+	
+	public List<School> schoolWithMaximumStudents(String city){
+		return  null;
+	}
+}

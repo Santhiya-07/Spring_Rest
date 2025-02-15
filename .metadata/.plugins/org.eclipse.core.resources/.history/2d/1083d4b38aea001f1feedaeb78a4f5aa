@@ -1,0 +1,17 @@
+package com.capg.exception;
+
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+@RestControllerAdvice
+public class GlobalExceptionHandling {
+	@ExceptionHandler(value=InvalidPriceException.class) 
+	public String handleExceptionForInvalidPrice(InvalidPriceException e) { 
+		return e.getMsg(); 
+		}
+	
+	@ExceptionHandler(value=IdNotFoundException.class) 
+	public String handleExceptionForIdNotFound(IdNotFoundException e) { 
+		return e.getMsg(); 
+		}
+
+}

@@ -1,0 +1,9 @@
+package com.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.bean.School;
+
+public interface SchoolRepository extends JpaRepository<School, String> {
+
+}

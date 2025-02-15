@@ -1,0 +1,16 @@
+package com.capg.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.capg.entity.Product;
+import com.capg.repository.ProductRepository;
+
+public class ProductController {
+	@Autowired
+	ProductRepository productRepository;
+	public Product  addProduct(Product product) {
+		return productRepository.save(product);
+		
+	}
+
+}

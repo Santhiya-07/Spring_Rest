@@ -1,0 +1,12 @@
+package com.capg.controller;
+
+public class ProductController {
+	public String home() {
+		return "this is home";
+	}
+	
+	public String aboutUs() {
+		return "this is about";
+	}
+
+}
