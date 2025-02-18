@@ -6,6 +6,12 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.Future;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.PastOrPresent;
+import jakarta.validation.constraints.Positive;
 
 //Provide necessary Annotation 
 @Entity
@@ -13,14 +19,22 @@ public class Membership {
 
 	//Provide necessary Annotation 
 	@Id
-	
+	@NotEmpty(message= "Provide value for membership Id")
 	private String membershipId;
+	@NotEmpty(message="Provide value for plan name")
 	private String planName;
+	@NotEmpty(message="Provide value for membership type")
 	private String membershipType;
+	@Min(value=30,message="Monthly Access Hours should be in the range 30 to 90")
+	@Max(value=90,message = "Monthly Access Hours should be in the range 30 to 90")
 	private int monthlyAccessHours;
+	@PastOrPresent(message="Launch date should be either current or past date")
 	private LocalDate launchDate;
+	@Future(message="Expiration date should be in future")
 	private LocalDate expirationDate;
+	@Positive(message="Monthly fee should be greater than zero")
 	private double monthlyFee;
+	@NotEmpty(message="Provide value for benefits")
 	private String benefits;
 	private boolean dietPlanOpted;
 

@@ -20,27 +20,30 @@ public class MembershipServiceImpl implements IMembershipService{
 
 	public Membership addMembership(Membership membership) {
 		// fill the code
-		return null;
+		
+		return membershipRepo.save(membership);
 	}
 
 	public Membership viewMembershipById(String membershipId) throws InvalidMembershipException {
 		// fill the code
-		return null;
+		
+		return membershipRepo.findById(membershipId)
+				              .orElseThrow(()-> new InvalidMembershipException(membershipId));
 	}
 	
 	public List<Membership> viewMembershipsByBenefit(String benefit) {
 		// fill the code
-		return null;
+		return membershipRepo.findByBenefitsContaining(benefit);
 	} 
 
 	public List<Membership> viewMembershipsByTypeAndAccessHours(String membershipType, int monthlyAccessHours) {
 		// fill the code
-		return null;
+		return membershipRepo.findByMembershipTypeAndMonthlyAccessHoursGreaterThan(membershipType, monthlyAccessHours);
 	} 	  	      	 	    	      	    	      	 	
 	
-	public Map<String,Integer> getMembershipCountTypeWise() {
+	public Map<String, Integer> getMembershipCountTypeWise() {
 		// fill the code
-		return null;
+		return membershipRepo.getMembershipCountTypeWise();
 	}
 
 }
